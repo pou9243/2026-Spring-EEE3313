@@ -23,7 +23,7 @@
 module simple_cpu_tb;
 reg clk, write;
 reg[2:0] muxA_sel, muxB_sel;
-reg[1:0] opcode;
+reg[2:0] opcode;
 reg[2:0] D_addr;
 wire[3:0] O0, O1, O2, O3, O4, O5, O6, O7;
 
@@ -38,13 +38,23 @@ initial clk = 1'b0;
 always #5 clk = ~clk;
 
 initial begin
-{opcode, D_addr, muxA_sel, muxB_sel} = 11'b00000001010;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b000000001010;
 write = 1'b1; #20; write = 1'b0;
-{opcode, D_addr, muxA_sel, muxB_sel} = 11'b01000111011;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b001000111011;
 write = 1'b1; #20; write = 1'b0;
-{opcode, D_addr, muxA_sel, muxB_sel} = 11'b10000101010;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b010000101010;
 write = 1'b1; #20; write = 1'b0;
-{opcode, D_addr, muxA_sel, muxB_sel} = 11'b11000101010;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b011000101010;
+write = 1'b1; #20; write = 1'b0;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b100011111110;
+write = 1'b1; #20; write = 1'b0;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b101011101010;
+write = 1'b1; #20; write = 1'b0;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b110011101010;
+write = 1'b1; #20; write = 1'b0;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b110011101101;
+write = 1'b1; #20; write = 1'b0;
+{opcode, D_addr, muxA_sel, muxB_sel} = 12'b111011101010;
 write = 1'b1; #20; write = 1'b0;
 #10 $finish;
 end

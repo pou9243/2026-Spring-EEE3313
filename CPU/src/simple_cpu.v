@@ -23,7 +23,7 @@
 module simple_cpu(
 input clk, write,
 input[2:0] muxA_sel, muxB_sel,
-input[1:0] opcode,
+input[2:0] opcode,
 input[2:0] D_addr,
 output reg[3:0] O0, O1, O2, O3, O4, O5, O6, O7 // 'probe' for reading value stored in register
     );
