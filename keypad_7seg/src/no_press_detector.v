@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module debouncer_no_press_detect(
+module no_press_detector(
 input clk,
 input[3:0] data_in,
 input valid_in,

@@ -9,6 +9,8 @@ Each project directory has the same basic structure:
 
 **tb** directory where all the testbench source files are located.
 
+**xdc** directory where all the constraints files are located.
+
 ----
 To import the project to your own Vivado environment, please follow the instructions below.
 
@@ -22,5 +24,8 @@ To export your own Vivado project to Tcl script, run the command below in your V
 
 `write_project_tcl -force /your/desired/path/your_Tcl_script_name.tcl`
 
---- 
+---- 
 All the Vivado projects and Tcl script files were created using Vivado 2020.2 version. Whether the projects run well on other Vivado versions is not tested.
+
+----
+If you have any copyright concerns regarding the code in this repository, please contact me at parkonyou9243@yonsei.ac.kr.

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module debouncer_hold(
+module data_hold(
 input clk,
 input[3:0] data_in,
 input valid_in, // not used in this module.

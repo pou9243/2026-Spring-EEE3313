@@ -20,12 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module num_to_7seg(
-input[3:0] num,
+module HEX_to_7seg_decoder(
+input[3:0] hex,
 output reg[6:0] seg
     );
     always @(*) begin
-        case(num)
+        case(hex)
             4'd0: seg = 7'b0111111;
             4'd1: seg = 7'b0000110;
             4'd2: seg = 7'b1011011;
