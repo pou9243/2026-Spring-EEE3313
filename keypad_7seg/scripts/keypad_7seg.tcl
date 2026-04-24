@@ -3,11 +3,13 @@ proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
    "../src/HEX_to_7seg_decoder.v" \
+   "../src/added_output.v" \
    "../src/clk_divider.v" \
    "../src/debouncer.v" \
-   "../src/delayed_output.v" \
    "../src/keypad_to_HEX_encoder.v" \
    "../src/scan_signal_gen.v" \
+   "../src/top_added_output.v" \
+   "../src/delayed_output.v" \
    "../src/top_delayed_output.v" \
    "../src/top_no_press_detect.v" \
    "../src/data_hold.v" \
@@ -91,7 +93,7 @@ if { $::argc > 0 } {
 set orig_proj_dir "[file normalize "$origin_dir/../work/keypad_7seg"]"
 
 # Check for paths and files needed for project creation
-set validate_required 1
+set validate_required 0
 if { $validate_required } {
   if { [checkRequiredFiles $origin_dir] } {
     puts "Tcl file $script_file is valid. All files required for project creation is accesable. "
@@ -129,11 +131,13 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 set files [list \
  [file normalize "${origin_dir}/../src/HEX_to_7seg_decoder.v"] \
+ [file normalize "${origin_dir}/../src/added_output.v"] \
  [file normalize "${origin_dir}/../src/clk_divider.v"] \
  [file normalize "${origin_dir}/../src/debouncer.v"] \
- [file normalize "${origin_dir}/../src/delayed_output.v"] \
  [file normalize "${origin_dir}/../src/keypad_to_HEX_encoder.v"] \
  [file normalize "${origin_dir}/../src/scan_signal_gen.v"] \
+ [file normalize "${origin_dir}/../src/top_added_output.v"] \
+ [file normalize "${origin_dir}/../src/delayed_output.v"] \
  [file normalize "${origin_dir}/../src/top_delayed_output.v"] \
  [file normalize "${origin_dir}/../src/top_no_press_detect.v"] \
  [file normalize "${origin_dir}/../src/data_hold.v"] \
@@ -149,7 +153,8 @@ add_files -norecurse -fileset $obj $files
 
 # Set 'sources_1' fileset properties
 set obj [get_filesets sources_1]
-set_property -name "top" -value "top_delayed_output" -objects $obj
+set_property -name "top" -value "top_added_output" -objects $obj
+set_property -name "top_auto_set" -value "0" -objects $obj
 
 # Create 'constrs_1' fileset (if not found)
 if {[string equal [get_filesets -quiet constrs_1] ""]} {
@@ -183,4 +188,5 @@ set obj [get_filesets sim_1]
 set obj [get_filesets sim_1]
 set_property -name "hbs.configure_design_for_hier_access" -value "1" -objects $obj
 set_property -name "top" -value "top_delayed_output" -objects $obj
+set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "top_lib" -value "xil_defaultlib" -objects $obj

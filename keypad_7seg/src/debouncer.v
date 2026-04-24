@@ -34,8 +34,8 @@ output reg out_pulse
         out_pulse <= 0;
         if (valid_in) begin
             if (tracking_value == data_in) begin
-                if (hold_cnt < 16'd500) hold_cnt <= hold_cnt + 16'd1;
-                if (hold_cnt == 16'd499) begin
+                if (hold_cnt < 16'd1000) hold_cnt <= hold_cnt + 16'd1;
+                if (hold_cnt == 16'd999) begin
                     data_out <= tracking_value;
                     out_pulse <= 1;
                 end
