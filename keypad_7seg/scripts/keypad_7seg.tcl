@@ -93,7 +93,7 @@ if { $::argc > 0 } {
 set orig_proj_dir "[file normalize "$origin_dir/../work/keypad_7seg"]"
 
 # Check for paths and files needed for project creation
-set validate_required 0
+set validate_required 1
 if { $validate_required } {
   if { [checkRequiredFiles $origin_dir] } {
     puts "Tcl file $script_file is valid. All files required for project creation is accesable. "
