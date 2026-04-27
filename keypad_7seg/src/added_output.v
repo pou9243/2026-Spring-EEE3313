@@ -33,7 +33,7 @@ output reg[3:0] tens, ones
     // Add logic
     always @(posedge clk) begin
         if (in_pulse) begin
-            if (data_in == 4'd14) begin
+            if (data_in == 4'd15) begin
                 data_out <= (value_buff1 + value_buff2);
             end
             else if (data_in <= 4'd9) begin
