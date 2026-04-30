@@ -27,32 +27,39 @@ input valid_in,
 output reg[3:0] data_out,
 output reg out_pulse
     );
+    localparam TARGET_CNT = 16'd1000;
+    
     reg[15:0] hold_cnt = 16'd0;
     reg[3:0] tracking_value = 4'd0;
     
     always @(posedge clk) begin
-        out_pulse <= 0;
         if (valid_in) begin
+            // Count-up if data_in is stable.
             if (tracking_value == data_in) begin
-                if (hold_cnt <= 16'd1000) begin
+                if (hold_cnt <= TARGET_CNT) begin
                     hold_cnt <= hold_cnt + 16'd1;
-                    if (hold_cnt == 16'd1000) begin
-                        data_out <= tracking_value;
-                        out_pulse <= 1;
-                    end
-                    else begin
-                        out_pulse <= 0;
-                    end
                 end
             end
             else begin
                 tracking_value <= data_in;
                 hold_cnt <= 16'd0;
-                out_pulse <= 0;
+            end
+            
+            // Update data_out and generate a pulse if the condition is met.
+            if (hold_cnt == TARGET_CNT) begin
+                data_out <= tracking_value;
+                out_pulse <= 1'b1; // single-clock pulse
+            end
+            else begin
+                out_pulse <= 1'b0; // single-clock pulse
             end
         end
+       
+        // Hold data_out & initialize the necessary values when valid_in is 0.
         else begin
             data_out <= data_out;
+            out_pulse <= 1'b0;
+            hold_cnt <= 16'd0;
         end
     end
 endmodule
