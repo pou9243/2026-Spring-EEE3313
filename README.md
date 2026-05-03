@@ -7,9 +7,9 @@ Each project directory has the same basic structure:
 
 **src** directory where all the design source files are located,
 
-**tb** directory where all the testbench source files are located.
+**tb** directory where all the testbench source files are located,
 
-**xdc** directory where all the constraints files are located.
+(FPGA project only) **xdc** directory where all the constraints files are located.
 
 ----
 To import the project to your own Vivado environment, please follow the instructions below.
