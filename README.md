@@ -28,4 +28,10 @@ To export your own Vivado project to Tcl script, run the command below in your V
 All the Vivado projects and Tcl script files were created using Vivado 2020.2 version. Whether the projects run well on other Vivado versions is not tested.
 
 ----
+Third-Party Components:
+
+The hardware constraint file (`.xdc`) included in this repository is based on the Master XDC provided by Digilent Inc. and is licensed under the MIT License.
+Please refer to the original copyright notice and license header inside the `.xdc` file for more details.
+
+----
 If you have any copyright concerns regarding the code in this repository, please contact me at parkonyou9243@yonsei.ac.kr.
