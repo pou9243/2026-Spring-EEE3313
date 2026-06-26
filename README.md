@@ -1,4 +1,4 @@
-This repository is created to manage the Vivado project files and Tcl scripts that were used during the EEE3313 - Digital Circuit and Logic Design Labs course.
+This repository is created to manage the Vivado project files and Tcl scripts that were used during the EEE3313 - Digital Circuit and Logic Design Labs course. The `basys3` branch includes all necessary code changes to run the FPGA projects on the Digilent Basys 3 board.
 
 ----
 Each project directory has the same basic structure: 
@@ -25,7 +25,7 @@ To export your own Vivado project to Tcl script, run the command below in your V
 `write_project_tcl -force /your/desired/path/your_Tcl_script_name.tcl`
 
 ---- 
-All the Vivado projects and Tcl script files were created using Vivado 2020.2 version. Whether the projects run well on other Vivado versions is not tested.
+All the Vivado projects and Tcl script files were created and tested on Vivado 2025.2.1 version. Whether the projects run well on other Vivado versions is not tested.
 
 ----
 Third-Party Components:
