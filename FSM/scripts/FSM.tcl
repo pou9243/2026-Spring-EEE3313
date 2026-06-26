@@ -97,20 +97,19 @@ if { $validate_required } {
 }
 
 # Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7vx485tffg1157-1
+create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7a35tcpg236-1
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
 
 # Set project properties
 set obj [current_project]
-set_property -name "board_part_repo_paths" -value "[file normalize "$origin_dir/../../../../../tools/Xilinx/Vivado/2020.2/data/boards/board_files/basys3"]" -objects $obj
 set_property -name "default_lib" -value "xil_defaultlib" -objects $obj
 set_property -name "enable_vhdl_2008" -value "1" -objects $obj
 set_property -name "ip_cache_permissions" -value "read write" -objects $obj
 set_property -name "ip_output_repo" -value "$proj_dir/${_xil_proj_name_}.cache/ip" -objects $obj
 set_property -name "mem.enable_memory_map_generation" -value "1" -objects $obj
-set_property -name "part" -value "xc7vx485tffg1157-1" -objects $obj
+set_property -name "part" -value "xc7a35tcpg236-1" -objects $obj
 set_property -name "sim.central_dir" -value "$proj_dir/${_xil_proj_name_}.ip_user_files" -objects $obj
 set_property -name "sim.ip.auto_export_scripts" -value "1" -objects $obj
 set_property -name "simulator_language" -value "Mixed" -objects $obj
@@ -153,7 +152,7 @@ set obj [get_filesets constrs_1]
 
 # Set 'constrs_1' fileset properties
 set obj [get_filesets constrs_1]
-set_property -name "target_part" -value "xc7vx485tffg1157-1" -objects $obj
+set_property -name "target_part" -value "xc7a35tcpg236-1" -objects $obj
 
 # Create 'sim_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sim_1] ""]} {

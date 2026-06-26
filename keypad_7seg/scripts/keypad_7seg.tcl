@@ -14,7 +14,7 @@ proc checkRequiredFiles { origin_dir} {
    "../src/top_no_press_detect.v" \
    "../src/data_hold.v" \
    "../src/no_press_detector.v" \
-   "../xdc/pynq-z2_v1.0.xdc" \
+   "../xdc/Basys-3-Master.xdc" \
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -104,20 +104,20 @@ if { $validate_required } {
 }
 
 # Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7z020clg400-1
+create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7a35tcpg236-1
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
 
 # Set project properties
 set obj [current_project]
-set_property -name "board_part" -value "tul.com.tw:pynq-z2:part0:1.0" -objects $obj
+set_property -name "board_part" -value "digilentinc.com:basys3:part0:1.2" -objects $obj
 set_property -name "default_lib" -value "xil_defaultlib" -objects $obj
 set_property -name "enable_vhdl_2008" -value "1" -objects $obj
 set_property -name "ip_cache_permissions" -value "read write" -objects $obj
 set_property -name "ip_output_repo" -value "$proj_dir/${_xil_proj_name_}.cache/ip" -objects $obj
 set_property -name "mem.enable_memory_map_generation" -value "1" -objects $obj
-set_property -name "platform.board_id" -value "pynq-z2" -objects $obj
+set_property -name "platform.board_id" -value "basys3" -objects $obj
 set_property -name "sim.central_dir" -value "$proj_dir/${_xil_proj_name_}.ip_user_files" -objects $obj
 set_property -name "sim.ip.auto_export_scripts" -value "1" -objects $obj
 set_property -name "simulator_language" -value "Mixed" -objects $obj
@@ -165,9 +165,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/../xdc/pynq-z2_v1.0.xdc"]"
+set file "[file normalize "$origin_dir/../xdc/Basys-3-Master.xdc"]"
 set file_added [add_files -norecurse -fileset $obj [list $file]]
-set file "$origin_dir/../xdc/pynq-z2_v1.0.xdc"
+set file "$origin_dir/../xdc/Basys-3-Master.xdc"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
