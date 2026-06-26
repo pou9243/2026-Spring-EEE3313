@@ -20,7 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module clk_divider(
+module clk_divider #(
+parameter [31:0] TGT_CNT = 12500
+)
+(
 input clk,
 output slow_clk
     );
@@ -29,7 +32,7 @@ output slow_clk
     reg slow_clk_reg = 1'b0;
     
     always @(posedge clk) begin
-        if (cnt == 12500 - 1) begin
+        if (cnt == TGT_CNT - 1) begin
             cnt <= 0;
             slow_clk_reg <= ~slow_clk_reg;
         end

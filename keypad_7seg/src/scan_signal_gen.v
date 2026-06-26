@@ -29,10 +29,10 @@ output reg[3:0] col
     
     always @(posedge clk) begin
         case(col_idx)
-        3'd0: col <= 4'b1000;
-        3'd1: col <= 4'b0100;
-        3'd2: col <= 4'b0010;
-        3'd3: col <= 4'b0001;
+        3'd0: col <= 4'b0111;
+        3'd1: col <= 4'b1011;
+        3'd2: col <= 4'b1101;
+        3'd3: col <= 4'b1110;
         endcase
         
         if (col_idx >= 3'd3) begin

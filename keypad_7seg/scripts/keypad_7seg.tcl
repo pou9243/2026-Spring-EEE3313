@@ -14,6 +14,7 @@ proc checkRequiredFiles { origin_dir} {
    "../src/top_no_press_detect.v" \
    "../src/data_hold.v" \
    "../src/no_press_detector.v" \
+   "../src/ctrl_7seg.v" \
    "../xdc/Basys-3-Master.xdc" \
   ]
   foreach ifile $files {
@@ -142,6 +143,7 @@ set files [list \
  [file normalize "${origin_dir}/../src/top_no_press_detect.v"] \
  [file normalize "${origin_dir}/../src/data_hold.v"] \
  [file normalize "${origin_dir}/../src/no_press_detector.v"] \
+ [file normalize "${origin_dir}/../src/ctrl_7seg.v"] \
 ]
 add_files -norecurse -fileset $obj $files
 

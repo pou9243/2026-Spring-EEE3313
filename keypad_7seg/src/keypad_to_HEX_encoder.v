@@ -32,25 +32,25 @@ output reg scan_valid
     always @(posedge clk) begin
         scan_pulse <= 1'b1;
         case({row, col})
-            8'b1000_1000: scan_value <= 4'd1;
-            8'b1000_0100: scan_value <= 4'd2;
-            8'b1000_0010: scan_value <= 4'd3;
-            8'b1000_0001: scan_value <= 4'd10;
+            8'b0111_0111: scan_value <= 4'd1;
+            8'b0111_1011: scan_value <= 4'd2;
+            8'b0111_1101: scan_value <= 4'd3;
+            8'b0111_1110: scan_value <= 4'd10;
                           
-            8'b0100_1000: scan_value <= 4'd4;
-            8'b0100_0100: scan_value <= 4'd5;
-            8'b0100_0010: scan_value <= 4'd6;
-            8'b0100_0001: scan_value <= 4'd11;
+            8'b1011_0111: scan_value <= 4'd4;
+            8'b1011_1011: scan_value <= 4'd5;
+            8'b1011_1101: scan_value <= 4'd6;
+            8'b1011_1110: scan_value <= 4'd11;
                           
-            8'b0010_1000: scan_value <= 4'd7;
-            8'b0010_0100: scan_value <= 4'd8;
-            8'b0010_0010: scan_value <= 4'd9;
-            8'b0010_0001: scan_value <= 4'd12;
+            8'b1101_0111: scan_value <= 4'd7;
+            8'b1101_1011: scan_value <= 4'd8;
+            8'b1101_1101: scan_value <= 4'd9;
+            8'b1101_1110: scan_value <= 4'd12;
                           
-            8'b0001_1000: scan_value <= 4'd14;
-            8'b0001_0100: scan_value <= 4'd0;
-            8'b0001_0010: scan_value <= 4'd15;
-            8'b0001_0001: scan_value <= 4'd13;
+            8'b1110_0111: scan_value <= 4'd0;
+            8'b1110_1011: scan_value <= 4'd15;
+            8'b1110_1101: scan_value <= 4'd14;
+            8'b1110_1110: scan_value <= 4'd13;
             default: begin scan_value <= scan_value; scan_pulse <= 1'b0; end
         endcase
     end
